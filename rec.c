@@ -666,8 +666,8 @@ int main(void)
 
 /* FIXME: once I get digi in, change NONE to AUTODETECT */
 
-  install_sound(DIGI_NONE,
-                playing_midi ? MIDI_AUTODETECT : MIDI_NONE,
+  install_sound(DIGI_AUTODETECT,
+                playing_midi ? MIDI_DIGMID : MIDI_NONE,
                 NULL);
 
   dat = load_datafile("idltd.dat");
