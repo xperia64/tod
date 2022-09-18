@@ -34,5 +34,5 @@ fixed hgrsin(fixed theta)
 
 fixed hgrtan(fixed theta)
 {
-  return fdiv(hgrcos(theta + 0xc00000), hgrcos(theta));
+  return fixdiv(hgrcos(theta + 0xc00000), hgrcos(theta));
 }
