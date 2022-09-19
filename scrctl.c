@@ -226,7 +226,7 @@ void LoadLands(int songNo, DATAFILE *dat)
     return;
 
   memcpy(linebuf, item->dat, item->size);
-  linebuf[item->size + 1] = 0;
+  linebuf[item->size] = 0;
 
 
   for(tok = strtok(linebuf, " ,\n"); tok != 0; tok = strtok(0, " ,\n"))

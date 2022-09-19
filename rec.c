@@ -804,5 +804,7 @@ int main(void)
   unload_datafile(dat);
   remove_int(timerint);
 
+  allegro_exit();
+
   return 0;
 } END_OF_MAIN();
