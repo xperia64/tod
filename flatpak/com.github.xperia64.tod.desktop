@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Exec=/app/bin/tod %u
+Name=Tetanus On Drugs
+Categories=Game;BlocksGame

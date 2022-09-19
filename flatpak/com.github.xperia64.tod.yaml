@@ -36,9 +36,12 @@ modules:
       - install -D tod-debug.exe /app/bin/tod
       - install -D idltd.dat /app/bin/idltd.dat
       - install -D patches.dat /app/bin/patches.dat
+      - install -D com.github.xperia64.tod.desktop /app/share/applications/com.github.xperia64.tod.desktop
     sources:
       - type: dir
         path: ..
+      - type: file
+        path: com.github.xperia64.tod.desktop
 cleanup:
   - /include
   - /lib/pkgconfig
