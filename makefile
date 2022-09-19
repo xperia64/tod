@@ -1,7 +1,7 @@
 OBJ = hiscore rec scrctl tetanus crc allegdlg hgrcos
 HEADS = tod.h allegdlg.h crc.h hgrcos.h hiscore.h
 LIBS = `allegro-config --libs`
-CFLAGS += `allegro-config --cflags`
+CFLAGS += `allegro-config --cflags` -Wall -O0
 CC = gcc
 
 
