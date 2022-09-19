@@ -6,6 +6,8 @@
 #include "allegdlg.h"
 #include "hiscore.h"
 
+#define MAX_RES 4096
+
 #define NUM_PIECES    10
 #define NUM_FLIPS      4
 #define NUM_BLOCKS     4
@@ -54,7 +56,7 @@ typedef struct Timers
 
 typedef struct Seven
 {
-  fixed leftX[768], rightX[768], leftY[768], rightY[768];
+  fixed leftX[4096], rightX[4096], leftY[4096], rightY[4096];
   BITMAP *backBuf, *frontBuf;
   int leftSide, rightSide;
   int nextX;

@@ -6,17 +6,16 @@
 
 #define FRAMERATE 60
 
-int windowWid = 320;
-int windowHt  = 200;
+int windowWid = 1280;
+int windowHt  = 800;
 
-#define NUM_RES 8
+#define NUM_RES 1
 
-int xRes[NUM_RES] = {320, 320, 400, 512, 640, 640, 800,1024};
-int yRes[NUM_RES] = {200, 240, 300, 384, 400, 480, 600, 768};
-char lucidName[NUM_RES][NUM_RES] =
+int xRes[NUM_RES] = {1280};
+int yRes[NUM_RES] = {800};
+const char* lucidName[NUM_RES] =
 {
-  "LUCID12", "LUCID12", "LUCID16", "LUCID20",
-  "LUCID24", "LUCID24", "LUCID32", "LUCID40"
+  "LUCID40"
 };
 
 int playing_midi = 1;
@@ -105,6 +104,7 @@ static char *GetRes_List(int index, int *list_size)
 
 int GetRes(char *aimsn)
 {
+#if 0
   int chosen;
 
   DIALOG dlg[] =
@@ -123,8 +123,8 @@ int GetRes(char *aimsn)
   };
 
   /* Some VGAs garble 400x300 without returning error. */
-  if(set_gfx_mode(GFX_AUTODETECT, 320, 240, 0, 0) < 0)
-    if(set_gfx_mode(GFX_AUTODETECT, 320, 200, 0, 0) < 0)
+  if(set_gfx_mode(GFX_AUTODETECT_WINDOWED, 320, 240, 0, 0) < 0)
+    if(set_gfx_mode(GFX_AUTODETECT_WINDOWED, 320, 200, 0, 0) < 0)
       return -1;
 
   centre_dialog(dlg);
@@ -148,13 +148,26 @@ int GetRes(char *aimsn)
   windowWid = xRes[chosen];
   windowHt = yRes[chosen];
 
-  if(set_gfx_mode(GFX_AUTODETECT, xRes[chosen], yRes[chosen], 0, 0) < 0)
+  if(set_gfx_mode(GFX_AUTODETECT_WINDOWED, xRes[chosen], yRes[chosen], 0, 0) < 0)
   {
     set_gfx_mode(GFX_TEXT, 80, 50, 0, 0);
     return -1;
   }
 
   return chosen;
+#else
+  int chosen = 0;
+  install_keyboard();
+  install_joystick(JOY_TYPE_AUTODETECT);
+  if(num_joysticks > 0) {
+    g.usingJoy = 1;
+  }
+  playing_midi = 1;
+  windowWid = xRes[chosen];
+  windowHt = yRes[chosen];
+  set_gfx_mode(GFX_AUTODETECT_WINDOWED, xRes[chosen], yRes[chosen], 0, 0);
+  return chosen;
+#endif
 }
 
 
@@ -660,7 +673,7 @@ int main(void)
   y = GetRes(aimsn);
   if(y < 0)
   {
-    allegro_message("could not set graphics mode\n");
+    //allegro_message("could not set graphics mode\n");
     return 1;
   }
 
