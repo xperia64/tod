@@ -670,7 +670,12 @@ int main(void)
                 playing_midi ? MIDI_DIGMID : MIDI_NONE,
                 NULL);
 
-  dat = load_datafile("idltd.dat");
+  char rsrc_path[1024];
+  if (find_allegro_resource(rsrc_path, "idltd.dat", NULL, NULL, NULL, NULL, NULL, sizeof(rsrc_path))) {
+    alert("could not find idltd.dat in path", "", "", "OK", NULL, 13, 0);
+    return 1;
+  }
+  dat = load_datafile(rsrc_path);
   if(!dat)
   {
     alert("no idltd.dat", "", "", "OK", NULL, 13, 0);
