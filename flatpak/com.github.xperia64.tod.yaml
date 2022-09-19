@@ -45,5 +45,4 @@ modules:
 cleanup:
   - /include
   - /lib/pkgconfig
-  - /lib/debug
   - /bin/allegro-config
