@@ -97,16 +97,16 @@ static int LoginDialog(char *aimsn, char *pass)
 {
   DIALOG dlg[] =
   {
-   /* (dialog proc)     (x)   (y)   (w)   (h)   (fg)  (bg)  (key) (flags)  (d1)  (d2)  (dp) */
-   { d_box_proc,        0,    0,    320,  200,  0,    0,    0,    0,       0,    0,    NULL },
-   { d_button_proc,     170,  184,  60,   12,   63,   0,    27,   D_EXIT,  0,    0,    "Cancel"},
-   { d_edit_proc,       128,  104,  136,  8,    63,   2,    'n',  D_EXIT,  16,   0,    aimsn},
-   { DY_pass_proc,      128,  116,  136,  8,    63,   2,    'p',  D_EXIT,  16,   0,    pass},
-   { d_text_proc,       24,   104,  104,  16,   63,   0,    0,    0,       0,    0,    "Screen &name:"},
-   { d_text_proc,       24,   116,  104,  16,   63,   0,    0,    0,       0,    0,    "&Password:"},
-   { DY_bitmap_proc,    0,    0,    320,  100,  63,   0,    0,    0,       0,    0,    todlogo },
-   { DY_idle_proc,      0,    0,    0,    0,    0,    0,    0,    0,       0,    0,    NULL },
-   { NULL,              0,    0,    0,    0,    0,    0,    0,    0,       0,    0,    NULL }
+   /* (dialog proc)     (x)   (y)   (w)   (h)   (fg)  (bg)  (key) (flags)  (d1)  (d2)  (dp)             (dp2) (dp3) */
+   { d_box_proc,        0,    0,    320,  200,  0,    0,    0,    0,       0,    0,    NULL,            NULL, NULL},
+   { d_button_proc,     170,  184,  60,   12,   63,   0,    27,   D_EXIT,  0,    0,    "Cancel",        NULL, NULL},
+   { d_edit_proc,       128,  104,  136,  8,    63,   2,    'n',  D_EXIT,  16,   0,    aimsn,           NULL, NULL},
+   { DY_pass_proc,      128,  116,  136,  8,    63,   2,    'p',  D_EXIT,  16,   0,    pass,            NULL, NULL},
+   { d_text_proc,       24,   104,  104,  16,   63,   0,    0,    0,       0,    0,    "Screen &name:", NULL, NULL},
+   { d_text_proc,       24,   116,  104,  16,   63,   0,    0,    0,       0,    0,    "&Password:",    NULL, NULL},
+   { DY_bitmap_proc,    0,    0,    320,  100,  63,   0,    0,    0,       0,    0,    todlogo,         NULL, NULL},
+   { DY_idle_proc,      0,    0,    0,    0,    0,    0,    0,    0,       0,    0,    NULL,            NULL, NULL},
+   { NULL,              0,    0,    0,    0,    0,    0,    0,    0,       0,    0,    NULL,            NULL, NULL}
   };
 
   int pressed;

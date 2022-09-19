@@ -109,17 +109,17 @@ int GetRes(char *aimsn)
 
   DIALOG dlg[] =
   {
-   /* (dialog proc)     (x)   (y)   (w)   (h)   (fg)  (bg)  (key) (flags)  (d1)  (d2)  (dp) */
-   { d_box_proc,        0,    0,    288,  176,  0,    7,    0,    0,       0,    0,    NULL },
-   { d_button_proc,     208,  160,  48,   12,   0,    7,    13,   D_EXIT,  0,    0,    "Go"},
-   { d_button_proc,     144,  160,  64,   12,   0,    7,    27,   D_EXIT,  0,    0,    "Cancel"},
-   { d_list_proc,       96,   27,   80,   70,   0,    7,    'r',  D_EXIT,  0,    0,    GetRes_List },
-   { DY_check_proc,     24,   108,  144,  8,    0,    7,    'm',  D_SELECTED,0,  0,    "Play &MIDI"},
-   { DY_check_proc,     24,   120,  144,  8,    0,    7,    'j',  0,       0,    0,    "Use &joysticks"},
-   { d_text_proc,       24,   27,   88,   16,   0,    7,    0,    0,       0,    0,    "&Screen:"},
-   { d_text_proc,       24,   10,   136,  16,   0,    7,    0,    0,       0,    0,    "tetanus on drugs."},
-   { DY_idle_proc,      0,    0,    0,    0,    0,    0,    0,    0,       0,    0,    NULL },
-   { NULL,              0,    0,    0,    0,    0,    0,    0,    0,       0,    0,    NULL }
+   /* (dialog proc)     (x)   (y)   (w)   (h)   (fg)  (bg)  (key) (flags)  (d1)  (d2)  (dp)                 (dp2) (dp3) */
+   { d_box_proc,        0,    0,    288,  176,  0,    7,    0,    0,       0,    0,    NULL,                NULL, NULL},
+   { d_button_proc,     208,  160,  48,   12,   0,    7,    13,   D_EXIT,  0,    0,    "Go",                NULL, NULL},
+   { d_button_proc,     144,  160,  64,   12,   0,    7,    27,   D_EXIT,  0,    0,    "Cancel",            NULL, NULL},
+   { d_list_proc,       96,   27,   80,   70,   0,    7,    'r',  D_EXIT,  0,    0,    GetRes_List,         NULL, NULL},
+   { DY_check_proc,     24,   108,  144,  8,    0,    7,    'm',  D_SELECTED,0,  0,    "Play &MIDI",        NULL, NULL},
+   { DY_check_proc,     24,   120,  144,  8,    0,    7,    'j',  0,       0,    0,    "Use &joysticks",    NULL, NULL},
+   { d_text_proc,       24,   27,   88,   16,   0,    7,    0,    0,       0,    0,    "&Screen:",          NULL, NULL},
+   { d_text_proc,       24,   10,   136,  16,   0,    7,    0,    0,       0,    0,    "tetanus on drugs.", NULL, NULL},
+   { DY_idle_proc,      0,    0,    0,    0,    0,    0,    0,    0,       0,    0,    NULL,                NULL, NULL},
+   { NULL,              0,    0,    0,    0,    0,    0,    0,    0,       0,    0,    NULL,                NULL, NULL}
   };
 
   /* Some VGAs garble 400x300 without returning error. */
@@ -162,16 +162,16 @@ int GetOpts(char *aimsn, BITMAP *todlogo)
 {
   DIALOG dlg[] =
   {
-   /* (dialog proc)     (x)   (y)   (w)   (h)   (fg)  (bg)  (key) (flags)  (d1)  (d2)  (dp) */
-   { d_box_proc,        0,    0,    320,  200,  0,    0,    0,    0,       0,    0,    NULL },
-   { d_button_proc,     240,  184,  60,   12,   63,   0,    13,   D_EXIT,  0,    0,    "Play"},
-   { d_button_proc,     170,  184,  60,   12,   63,   0,    27,   D_EXIT,  0,    0,    "Cancel"},
-   { DY_check_proc,     24,   120,  144,  8,    63,   0,    't',  0,       0,    0,    "&The New Tetanus"},
-   { DY_check_proc,     24,   132,  144,  8,    63,   0,    '2',  0,       0,    0,    "&2-player (prealpha)"},
-   { DY_bitmap_proc,    0,    0,    320,  100,  63,   0,    0,    0,       0,    0,    todlogo },
-   { d_text_proc,       128,  104,  136,  8,    63,   0,    'n',  D_EXIT,  16,   0,    aimsn},
-   { DY_idle_proc,      0,    0,    0,    0,    0,    0,    0,    0,       0,    0,    NULL },
-   { NULL,              0,    0,    0,    0,    0,    0,    0,    0,       0,    0,    NULL }
+   /* (dialog proc)     (x)   (y)   (w)   (h)   (fg)  (bg)  (key) (flags)  (d1)  (d2)  (dp)                    (dp2) (dp3) */
+   { d_box_proc,        0,    0,    320,  200,  0,    0,    0,    0,       0,    0,    NULL,                   NULL, NULL},
+   { d_button_proc,     240,  184,  60,   12,   63,   0,    13,   D_EXIT,  0,    0,    "Play",                 NULL, NULL},
+   { d_button_proc,     170,  184,  60,   12,   63,   0,    27,   D_EXIT,  0,    0,    "Cancel",               NULL, NULL},
+   { DY_check_proc,     24,   120,  144,  8,    63,   0,    't',  0,       0,    0,    "&The New Tetanus",     NULL, NULL},
+   { DY_check_proc,     24,   132,  144,  8,    63,   0,    '2',  0,       0,    0,    "&2-player (prealpha)", NULL, NULL},
+   { DY_bitmap_proc,    0,    0,    320,  100,  63,   0,    0,    0,       0,    0,    todlogo,                NULL, NULL},
+   { d_text_proc,       128,  104,  136,  8,    63,   0,    'n',  D_EXIT,  16,   0,    aimsn,                  NULL, NULL},
+   { DY_idle_proc,      0,    0,    0,    0,    0,    0,    0,    0,       0,    0,    NULL,                   NULL, NULL},
+   { NULL,              0,    0,    0,    0,    0,    0,    0,    0,       0,    0,    NULL,                   NULL, NULL}
   };
 
   stop_midi();
@@ -761,7 +761,10 @@ int main(void)
           0x800000, 0x780000,         /* target for center */
           0, FRAMERATE, 0,            /* fps */
           0, 0,                       /* nEffects */
-          0, 1                        /* midi to mana */
+          0, 1, 0,                    /* midi to mana */
+          {
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0 /* fxQueue */
+          }
         }
       };
 

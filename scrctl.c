@@ -70,11 +70,12 @@ void CtlWord2Screen(ScreenPos *pos, unsigned int ctlword)
     pos->noise += 0x10000 / VIRTUAL_FPS;
   if(ctlword & 0x00020000)
     pos->heat += 0x400 / VIRTUAL_FPS;
+#if 0
   if(ctlword & 0x00040000)
     ;
   if(ctlword & 0x00080000)
     ;
-
+#endif
 }
 
 static const int ctlword_keys[32] =
@@ -205,8 +206,8 @@ static const Song songs[2] =
 static int intoLoop = 0;
 static DATAFILE *songdat;
 
-int intro_lands[1024], loop_lands[1024];
-int intro_len, loop_len;
+unsigned int intro_lands[1024], loop_lands[1024];
+unsigned int intro_len, loop_len;
 
 void LoadLands(int songNo, DATAFILE *dat)
 {
@@ -298,7 +299,7 @@ unsigned int Mana2CtlWord(ScreenPos *pos, unsigned int beat)
   unsigned ctl = 0;
   int *found;
   int i;
-  int *song_lands;
+  unsigned int *song_lands;
   int song_len;
 
   if(intoLoop == 0)

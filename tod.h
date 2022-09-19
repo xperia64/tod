@@ -101,7 +101,7 @@ typedef struct ScreenPos
 
   fixed xc, yc, xctarget, yctarget;
   int mana; // more mana == more effects
-  int fps;
+  unsigned fps;
   unsigned int fricCounter;
   int coming, nEffects;
   unsigned int lastBeat, midiLoop, curSong;

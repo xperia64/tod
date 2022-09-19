@@ -373,7 +373,9 @@ void MakeRepeats(char *repeatTime, short j, short autoDelay, short autoRate)
 static char CarbonStillGoing(void)
 {
   static int lastTime = 0;
+#if 0
   signed char flooded = 0;
+#endif
   short x, d, e, y;
 
 /* debugging information: enable if you touched any function with Carbon in
@@ -421,18 +423,22 @@ static char CarbonStillGoing(void)
       if((ME.auxMap.b[y][x] > 1) && (ME.auxMap.b[y + 1][x] == 1))
       {
 	TeFloodFill(x, y, 1);
+#if 0
 	flooded = 1;
+#endif
       }
 
   /* if something hit the ground, play a thud */
+#if 0
   if(flooded)
     /*SendSound(gDropSound)*/;
+#endif
 
   ME.y++; /* for scrolling the clear into visibility */
 
   /* if everything isn't ground, we're still going */
   for(y = 0; y <= 19; y++)
-    for(x = 0; x < 20; x++)
+    for(x = 0; x < 10; x++)
       if(ME.auxMap.b[y][x] > 1)
 	return 1;
 
@@ -1204,8 +1210,10 @@ static short MarkCarbon(int spinMove)
   int markX, markY;
   unsigned char q = 0;
 
+#if 0
   if(spinMove)
     /*SendSound(gTetrisSound)*/;
+#endif
 
   for(markY = 0; markY < 20; markY++)
     for(markX = 0; markX < 10; markX++)
